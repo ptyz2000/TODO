@@ -4,7 +4,7 @@ from users.serializers import UserModelSerializer
 from .models import Project, ToDo
 
 
-class ProjectModelSerializer(serializers.ModelSerializer):
+class ProjectModelSerializer(serializers.HyperlinkedModelSerializer):
     authors = UserModelSerializer
 
     class Meta:
@@ -12,10 +12,10 @@ class ProjectModelSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ToDoModelSerializer(serializers.ModelSerializer):
-    project = ProjectModelSerializer()
-    author = UserModelSerializer()
+class ToDoModelSerializer(serializers.HyperlinkedModelSerializer):
+    project = ProjectModelSerializer
+    author = UserModelSerializer
 
     class Meta:
         model = ToDo
-        exclude = ("is_active",)
+        fields = '__all__'

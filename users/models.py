@@ -7,5 +7,7 @@ class User(models.Model):
     firstname = models.CharField(max_length=64)
     lastname = models.CharField(max_length=64)
     email = models.EmailField(unique=True)
-    UUID = models.UUIDField(primary_key=True, default=uuid4(), editable=False)
+    UUID = models.UUIDField(primary_key=True, default=uuid4, editable=False)
 
+    class Meta:
+        ordering = ['username']
