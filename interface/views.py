@@ -1,9 +1,10 @@
+from rest_framework import status
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+
 from .models import Project, ToDo
 from .serializers import ProjectModelSerializer, ToDoModelSerializer
-from rest_framework.pagination import LimitOffsetPagination, PageNumberPagination
-from rest_framework.response import Response
-from rest_framework import status
 
 
 class ProjectModelPageNumberPagination(PageNumberPagination):
@@ -47,4 +48,3 @@ class ToDoModelViewSet(ModelViewSet):
         serializer.save()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
-
