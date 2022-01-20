@@ -20,26 +20,28 @@ class ProjectModelViewSet(ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
     pagination_class = ProjectModelPageNumberPagination
+    filterset_fields = ['name', 'authors']
 
-    def get_queryset(self):
-        queryset = Project.objects.all()
-        name = self.request.query_params.get('name')
-        if name is not None:
-            queryset = queryset.filter(name__contains=name)
-        return queryset
+    # def get_queryset(self):
+    #     queryset = Project.objects.all()
+    #     name = self.request.query_params.get('name')
+    #     if name is not None:
+    #         queryset = queryset.filter(name__contains=name)
+    #     return querysetet
 
 
 class ToDoModelViewSet(ModelViewSet):
     queryset = ToDo.objects.all()
     serializer_class = ToDoModelSerializer
     pagination_class = ToDoModelPageNumberPagination
+    filterset_fields = ['project', 'author']
 
-    def get_queryset(self):
-        queryset = ToDo.objects.all()
-        project = self.request.query_params.get('project')
-        if project is not None:
-            queryset = queryset.filter(project__name=project)
-        return queryset
+    # def get_queryset(self):
+    #     queryset = ToDo.objects.all()
+    #     project = self.request.query_params.get('project')
+    #     if project is not None:
+    #         queryset = queryset.filter(project__name=project)
+    #     return queryset
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()

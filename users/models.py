@@ -10,5 +10,8 @@ class User(models.Model):
     email = models.EmailField(unique=True)
     UUID = models.UUIDField(primary_key=True, default=uuid4, editable=False)
 
+    def __str__(self):
+        return self.username
+
     class Meta:
         ordering = ['username']
