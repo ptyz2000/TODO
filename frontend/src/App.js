@@ -4,7 +4,16 @@ import axios from "axios";
 import UserList from "./components/User.js";
 import ProjectList from "./components/Project";
 import ToDoList from "./components/ToDo";
-import {BrowserRouter, Route, Link} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import TopMenu from "./components/Menu";
+
+const NotFound404 = ({ location }) => {
+  return(
+      <div>
+          <h1>Page '{location.pathname}' not found</h1>
+      </div>
+  )
+}
 
 class App extends React.Component {
     constructor(props) {
@@ -35,20 +44,13 @@ class App extends React.Component {
     render() {
         return (<div className="App">
             <BrowserRouter>
-                <menu>
-                    <li>
-                        <Link to='/'>Users</Link>
-                    </li>
-                    <li>
-                        <Link to='/projects'>Projects</Link>
-                    </li>
-                    <li>
-                        <Link to='/todos'>Todos</Link>
-                    </li>
-                </menu>
-                <Route exact path='/' component={() => <UserList users={this.state.users}/>} />
-                <Route exact path='/projects' component={() => <ProjectList projects={this.state.projects}/>} />
-                <Route exact path='/todos' component={() => <ToDoList todos={this.state.todos}/>} />
+                <TopMenu/>
+                <Switch>
+                    <Route exact path='/' component={() => <UserList users={this.state.users}/>}/>
+                    <Route exact path='/projects' component={() => <ProjectList projects={this.state.projects}/>}/>
+                    <Route exact path='/todos' component={() => <ToDoList todos={this.state.todos}/>}/>
+                    <Route component={NotFound404}/>
+                </Switch>
             </BrowserRouter>
         </div>)
     }
