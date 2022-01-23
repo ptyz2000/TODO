@@ -1,6 +1,6 @@
+from django.contrib.auth import get_user_model
 from rest_framework import viewsets, mixins
 
-from django.contrib.auth import get_user_model
 from .serializers import UserModelSerializer
 
 
