@@ -13,7 +13,7 @@ const NotFound404 = ({ location }) => {
           <h1>Page '{location.pathname}' not found</h1>
       </div>
   )
-}
+};
 
 class App extends React.Component {
     constructor(props) {
@@ -24,19 +24,19 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://127.0.0.1:8000/api/users')
+        axios.get('http://127.0.0.1:8000/api/users/')
             .then(response => {
-                const users = response.data
+                const users = response.data;
                 this.setState({'users': users.results})
-            }).catch(error => console.log(error))
-        axios.get('http://127.0.0.1:8000/api/projects')
+            }).catch(error => console.log(error));
+        axios.get('http://127.0.0.1:8000/api/projects/')
             .then(response => {
-                const projects = response.data
+                const projects = response.data;
                 this.setState({'projects': projects.results})
-            }).catch(error => console.log(error))
-        axios.get('http://127.0.0.1:8000/api/todos')
+            }).catch(error => console.log(error));
+        axios.get('http://127.0.0.1:8000/api/todos/')
             .then(response => {
-                const todos = response.data
+                const todos = response.data;
                 this.setState({'todos': todos.results})
             }).catch(error => console.log(error))
     }

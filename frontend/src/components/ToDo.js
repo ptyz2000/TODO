@@ -12,7 +12,7 @@ const ToDoItem = ({todo}) => {
             {todo.upd_date}
         </td>
         <td>
-            {todo.is_active}
+            {todo.is_active.toString()}
         </td>
         <td>
             {todo.project}
@@ -21,7 +21,7 @@ const ToDoItem = ({todo}) => {
             {todo.author}
         </td>
     </tr>)
-}
+};
 
 const ToDoList = ({todos}) => {
     return (<table>
@@ -51,6 +51,6 @@ const ToDoList = ({todos}) => {
         {todos.map((todo, i) => <ToDoItem todo={todo} key={i}/>)}
         </tbody>
     </table>)
-}
+};
 
 export default ToDoList
