@@ -10,7 +10,7 @@ const ProjectItem = ({project}) => {
             <a href={project.repo}>{project.repo}</a>
         </td>
         <td>
-            {project.authors.map((item,i) => <option key={i}>{item}</option>)}
+            {project.authors.map((item, i) => <option key={i}>{item}</option>)}
         </td>
     </tr>)
 };
@@ -31,7 +31,7 @@ const ProjectList = ({projects}) => {
         </tr>
         </thead>
         <tbody>
-        {projects.map((project,i) => <ProjectItem project={project} key={i}/>)}
+        {projects.map((project, i) => <ProjectItem project={project} key={i}/>)}
         </tbody>
     </table>)
 };
