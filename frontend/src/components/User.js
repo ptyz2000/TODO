@@ -3,7 +3,7 @@ import React from "react";
 const UserItem = ({user}) => {
     return (<tr>
         <td>
-            {user.uname}
+            {user.username}
         </td>
         <td>
             {user.firstname}
@@ -12,7 +12,7 @@ const UserItem = ({user}) => {
             {user.lastname}
         </td>
         <td>
-            {user.e_mail}
+            {user.email}
         </td>
     </tr>)
 }
