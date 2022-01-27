@@ -1,5 +1,6 @@
-from django.db import models
 from uuid import uuid4
+
+from django.db import models
 
 
 # Create your models here.
@@ -12,6 +13,9 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['name']
+
 
 class ToDo(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
@@ -21,3 +25,6 @@ class ToDo(models.Model):
     is_active = models.BooleanField(default=True)
     author = models.ForeignKey("users.User", on_delete=models.PROTECT)
     UUID = models.UUIDField(primary_key=True, default=uuid4)
+
+    class Meta:
+        ordering = ['cr_date']
