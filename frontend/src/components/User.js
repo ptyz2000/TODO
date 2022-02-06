@@ -6,16 +6,16 @@ const UserItem = ({user}) => {
             {user.username}
         </td>
         <td>
-            {user.firstname}
+            {user.first_name}
         </td>
         <td>
-            {user.lastname}
+            {user.last_name}
         </td>
         <td>
             {user.email}
         </td>
     </tr>)
-}
+};
 
 const UserList = ({users}) => {
     return (
@@ -32,6 +32,6 @@ const UserList = ({users}) => {
                 {users.map((user,i) => <UserItem user={user} key={i}/>)}
             </tbody>
         </table>)
-}
+};
 
 export default UserList

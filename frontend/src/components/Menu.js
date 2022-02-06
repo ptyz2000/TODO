@@ -16,6 +16,6 @@ const TopMenu = () => {
             </li>
         </menu>
     )
-}
+};
 
 export default TopMenu

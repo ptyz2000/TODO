@@ -13,7 +13,7 @@ const ProjectItem = ({project}) => {
             {project.authors.map((item,i) => <option key={i}>{item}</option>)}
         </td>
     </tr>)
-}
+};
 
 const ProjectList = ({projects}) => {
     return (<table>
@@ -34,6 +34,6 @@ const ProjectList = ({projects}) => {
         {projects.map((project,i) => <ProjectItem project={project} key={i}/>)}
         </tbody>
     </table>)
-}
+};
 
 export default ProjectList
