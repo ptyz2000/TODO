@@ -1,10 +1,9 @@
 from rest_framework import serializers
 
-from users.serializers import UserModelSerializer
 from .models import Project, ToDo
 
 
-class ProjectModelSerializer(serializers.ModelSerializer):
+class ProjectModelSerializer(serializers.HyperlinkedModelSerializer):
     authors = serializers.StringRelatedField(many=True)
 
     class Meta:
@@ -12,9 +11,11 @@ class ProjectModelSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ToDoModelSerializer(serializers.ModelSerializer):
+class ToDoModelSerializer(serializers.HyperlinkedModelSerializer):
     project = serializers.StringRelatedField()
     author = serializers.StringRelatedField()
+    cr_date = serializers.DateTimeField(format='%Y.%m.%d %H:%M')
+    upd_date = serializers.DateTimeField(format='%Y.%m.%d %H:%M')
 
     class Meta:
         model = ToDo
