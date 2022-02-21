@@ -37,7 +37,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'users.apps.UsersConfig',
     'interface.apps.InterfaceConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -150,11 +149,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
-    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.AcceptHeaderVersioning',
-    'DEFAULT_VERSION': '0.1',
 }
-
-AUTH_USER_MODEL = "users.User"
 
 GRAPHENE = {
     'SCHEMA': 'interface.schema.schema',

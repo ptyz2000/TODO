@@ -24,8 +24,7 @@ from rest_framework.authtoken import views
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from interface.views import ProjectModelViewSet, ToDoModelViewSet
-from users.views import UserModelViewSet
+from interface.views import ProjectModelViewSet, ToDoModelViewSet, UserModelViewSet
 
 schema_view = get_schema_view(openapi.Info(title='ToDos', default_version='0.2', description='documentation',
                                            contact=openapi.Contact(email='admin@admin.local'),

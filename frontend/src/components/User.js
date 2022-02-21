@@ -1,6 +1,7 @@
 import React from "react";
 
 const UserItem = ({user}) => {
+    // noinspection JSUnresolvedVariable
     return (<tr>
         <td>
             {user.username}
